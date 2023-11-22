@@ -1,20 +1,75 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import { Button } from "react-native-elements";
+import Icon from "react-native-vector-icons/FontAwesome";
+
+import Main from "./src/components/Main/Main";
+import ImcList from "./src/components/ImcList/ImcList";
+import EditScreen from "./src/components/EditScreen/EditScreen";
+import { IconIMC } from "./src/components/Form/Icons/IconIMC";
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Main"
+        screenOptions={screenOptions}
+      >
+        <Stack.Screen
+          name="Main"
+          component={Main}
+          options={( {navigation} ) => {
+            return {
+              title: "Home",
+              headerRight: () => (
+                <IconIMC
+                  iconName="users"
+                  iconSize={40}
+                  iconColor="white"
+                  text="All IMCs"
+                  onPress={() => navigation.navigate("ImcList")}
+                />
+              ),
+            };
+          }}
+        />
+
+        <Stack.Screen
+          name="ImcList"
+          component={ImcList}
+          options={{title: "Voltar para Home"}}
+        />
+
+        <Stack.Screen
+          name="EditScreen"
+          component={EditScreen}
+          options={( {navigation} ) => {
+            return {
+              title: "Voltar para Home",
+              headerRight: () => (
+                <Button
+                  onPress={() => navigation.navigate("Main")}
+                  type="clear"
+                  icon={<Icon name="home" size={40} color="white" />}
+                />
+              ),
+            };
+          }}
+        />
+
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const screenOptions = {
+  headerStyle: {
+    backgroundColor: "red",
   },
-});
+  headerTintColor: "white",
+  headerTitleStyle: {
+    fontWeight: "bold",
+  },
+};
