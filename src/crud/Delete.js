@@ -6,8 +6,8 @@ export default async function DeleteUser({ documentId }){
     try {
       const userDoc = doc(db, 'nicknames', `${documentId}`);
       await deleteDoc(userDoc);
-      Alert.alert('The user has been deleted!');
+      Alert.alert('SUCESSO!', 'O usuário foi deletado do banco de dados');
     } catch (error) {
-      Alert.alert('Error','Error to delete the user:', error);
+      Alert.alert('ERRO','Erro ao deletar o usuário:', error);
     }
   };

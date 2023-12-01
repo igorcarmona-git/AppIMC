@@ -11,9 +11,9 @@ async function InsertNickname(props){
             weight: props.weight,
             imcValue: props.resultImc,
         });
-        Alert.alert("The data has been sent!")
+        Alert.alert("SUCESSO!", "Os dados foram salvos no banco de dados")
     } catch (error) {
-        Alert.alert("It wasn't possible to insert data, please try again! Try to contact an administrator.")
+        Alert.alert("Não foi possível inserir os dados no banco. Por favor, tente novamente!")
     }
 };
 
