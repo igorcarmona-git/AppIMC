@@ -17,8 +17,8 @@ Certifique-se de ter o ambiente de desenvolvimento React Native configurado em s
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
-cd nome-do-repositorio
+git clone https://github.com/igorcarmona-git/AppIMC.git
+cd AppIMC
 ```
 
 2. Instale as dependências:
@@ -30,5 +30,18 @@ ou
 ```bash
 yarn install
 ```
+
+## Uso
+1. Inicie o aplicativo no emulador ou dispositivo físico:
+```bash
+npx expo start
+```
+2. Acesse o aplicativo e insira seu peso e altura para calcular o IMC.
+
+## Contribuição
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests para melhorar o projeto.
+
+Para mais informações, entrar em contato via redes sociais.
+
 
 
